@@ -7,7 +7,7 @@ public class EmpWage {
     static final int EMP_WAGE_PER_HOUR = 20;
 
     public static void main(String[] args) {
-        // Use case 3 Add part-time employee & wage
+        // Use case 4 Solving using Switch Case Statement
 
         System.out.println("Welcome to the Employees Wage ...");
 
