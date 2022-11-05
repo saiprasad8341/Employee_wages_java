@@ -1,5 +1,5 @@
 package com.bridgelab;
-
+// UC-7 Refactor the Code to write a Class Method to Compute Employee Wage - Use Class Method and Class
 import static java.lang.Math.random;
 public class EmpWage {
     static final int IS_FULL_TIME = 1;
@@ -8,11 +8,7 @@ public class EmpWage {
     static final int NUM_WORKING_DAYS = 20;
     static  final int MAX_WORKING_HOURS = 100;
 
-    public static void main(String[] args) {
-        // Use case 6 Calculate Wages till a condition of total working hours or days is reached for a month
-
-        System.out.println("Welcome to the Employees Wage ...");
-
+    public static void EMPWage() {
         int empHrs = 0;
         int wage = 0;
         int totalSalaryPerMonth = 0;
@@ -38,5 +34,11 @@ public class EmpWage {
         }
         totalSalaryPerMonth = wage * EMP_WAGE_PER_HOUR;
         System.out.println("The Employee total Wage per month :: "+ totalSalaryPerMonth);
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Welcome to the Employees Wage ...");
+
+        EMPWage();
     }
 }
