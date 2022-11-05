@@ -1,18 +1,20 @@
 package com.bridgelab;
-// UC-7 Refactor the Code to write a Class Method to Compute Employee Wage - Use Class Method and Class
+// UC-8 Compute Employee Wage for multiple companies
 import static java.lang.Math.random;
 public class EmpWage {
     static final int IS_FULL_TIME = 1;
     static final int IS_PART_TIME = 2;
-    static final int EMP_WAGE_PER_HOUR = 20;
-    static final int NUM_WORKING_DAYS = 20;
-    static  final int MAX_WORKING_HOURS = 100;
+//    static final int EMP_WAGE_PER_HOUR = 20;
+//    static final int NUM_WORKING_DAYS = 20;
+//    static  final int MAX_WORKING_HOURS = 100;
 
-    public static void EMPWage() {
+    public static void EMPWage(String company, int EMP_WAGE_PER_HOUR, int NUM_WORKING_DAYS, int MAX_WORKING_HOURS) {
         int empHrs = 0;
         int wage = 0;
         int totalSalaryPerMonth = 0;
         int totalWorkingDays = 0;
+
+        System.out.println("Company name :::: "+company);
         while (totalWorkingDays <= NUM_WORKING_DAYS && totalWorkingDays <= MAX_WORKING_HOURS){
             int empCheck = (int) (random() * 3);
             totalWorkingDays++;
@@ -34,11 +36,13 @@ public class EmpWage {
         }
         totalSalaryPerMonth = wage * EMP_WAGE_PER_HOUR;
         System.out.println("The Employee total Wage per month :: "+ totalSalaryPerMonth);
+        System.out.println("----------------------------------------");
     }
 
     public static void main(String[] args) {
         System.out.println("Welcome to the Employees Wage ...");
 
-        EMPWage();
+        EMPWage("Google", 20, 20, 100);
+        EMPWage("FaceBook", 20, 10, 50);
     }
 }
