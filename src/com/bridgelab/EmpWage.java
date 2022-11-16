@@ -1,28 +1,36 @@
 package com.bridgelab;
-// UC-11 Ability to manage Employee Wage of multiple companies using Interface approach
+// UC-12 Refactor to have list of multiple companies to manage Employee Wage.
+import java.util.*;
 import static java.lang.Math.random;
 class EmpWage implements EmpInterface {
     public static final int IS_FULL_TIME = 1;
     public static final int IS_PART_TIME = 2;
 
-    private int numOfCompany = 0;
-    private CompanyEmpWage[] companyEmpWagesArray;
+//    private int numOfCompany = 0;
+//    private CompanyEmpWage[] companyEmpWagesArray;
+    private List<CompanyEmpWage> companyEmpWagesArray = new ArrayList<>();
 
-    public EmpWage(){
-        companyEmpWagesArray = new CompanyEmpWage[5];
-    }
+//    public EmpWage(){
+//        companyEmpWagesArray = new CompanyEmpWage[5];
+//    }
 
     private void addCompanyEmpWage(String company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth){
-        companyEmpWagesArray[numOfCompany] = new CompanyEmpWage(company,empRatePerHour,numOfWorkingDays,maxHoursPerMonth);
-        numOfCompany++;
+//        companyEmpWagesArray[numOfCompany] = new CompanyEmpWage(company,empRatePerHour,numOfWorkingDays,maxHoursPerMonth);
+//        numOfCompany++;
+        companyEmpWagesArray.add(new CompanyEmpWage(company,empRatePerHour,numOfWorkingDays,maxHoursPerMonth));
     }
 
     public void totalEmpWage() {
 
-        for (int i = 0; i < numOfCompany; i++ ){
-            companyEmpWagesArray[i].setTotalEmpWage(this.computeEmpWage(companyEmpWagesArray[i]));
-            System.out.println(companyEmpWagesArray[i]);
+//        for (int i = 0; i < numOfCompany; i++ ){
+//            companyEmpWagesArray[i].setTotalEmpWage(this.computeEmpWage(companyEmpWagesArray[i]));
+//            System.out.println(companyEmpWagesArray[i]);
+//        }
+        for(CompanyEmpWage obj : companyEmpWagesArray){
+            obj.setTotalEmpWage(this.computeEmpWage(companyEmpWagesArray.iterator().next()));
+            System.out.println(companyEmpWagesArray.get(companyEmpWagesArray.indexOf(obj)));
         }
+
     }
 
     private int computeEmpWage(CompanyEmpWage companyEmpWage) {
