@@ -1,5 +1,5 @@
 package com.bridgelab;
-// UC-12 Refactor to have list of multiple companies to manage Employee Wage.
+// UC-13 Store the Daily Wage along with the Total Wage
 import java.util.*;
 import static java.lang.Math.random;
 class EmpWage implements EmpInterface {
