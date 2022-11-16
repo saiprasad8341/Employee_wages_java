@@ -1,7 +1,7 @@
 package com.bridgelab;
-// UC-10 Ability to manage Employee Wage of multiple companies
+// UC-11 Ability to manage Employee Wage of multiple companies using Interface approach
 import static java.lang.Math.random;
-public class EmpWage {
+class EmpWage implements EmpInterface {
     public static final int IS_FULL_TIME = 1;
     public static final int IS_PART_TIME = 2;
 
@@ -17,7 +17,8 @@ public class EmpWage {
         numOfCompany++;
     }
 
-    private void computeEmpWage() {
+    public void totalEmpWage() {
+
         for (int i = 0; i < numOfCompany; i++ ){
             companyEmpWagesArray[i].setTotalEmpWage(this.computeEmpWage(companyEmpWagesArray[i]));
             System.out.println(companyEmpWagesArray[i]);
@@ -26,7 +27,7 @@ public class EmpWage {
 
     private int computeEmpWage(CompanyEmpWage companyEmpWage) {
 
-        int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
+        int empHrs, totalEmpHrs = 0, totalWorkingDays = 0;
         while (totalEmpHrs <= companyEmpWage.maxHoursPerMonth && totalWorkingDays <= companyEmpWage.numOfWorkingDays){
             int empCheck = (int) (random() * 3);
             totalWorkingDays++;
@@ -53,8 +54,8 @@ public class EmpWage {
     public static void main(String[] args) {
         System.out.println("Welcome to the Employees Wage ...");
         EmpWage empWage = new EmpWage();
-        empWage.addCompanyEmpWage("jio", 20,2, 10);
-        empWage.addCompanyEmpWage("DMart", 10, 4, 20);
-        empWage.computeEmpWage();
+        empWage.addCompanyEmpWage("jio", 20,2, 20);
+        empWage.addCompanyEmpWage("DMart", 20, 1, 20);
+        empWage.totalEmpWage();
     }
 }
